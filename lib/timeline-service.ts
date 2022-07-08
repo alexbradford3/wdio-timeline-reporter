@@ -107,14 +107,14 @@ export class TimelineService {
     }
   }
 
-  afterTest(test) {
-    const { screenshotStrategy } = this.reporterOptions;
-    if (screenshotStrategy === BEFORE_CLICK) {
-      browser.takeScreenshot();
-    }
-    if (screenshotStrategy === ON_ERROR && !test.passed) {
-      browser.takeScreenshot();
-    }
+  afterTest(test, context, { error, result, duration, passed, retries }) {
+      const { screenshotStrategy } = this.reporterOptions;
+      if (screenshotStrategy === BEFORE_CLICK) {
+          browser.takeScreenshot();
+      }
+      if (screenshotStrategy === ON_ERROR && !passed) {
+          browser.takeScreenshot();
+      }
   }
 
   async resize(screenshots: string[]) {
