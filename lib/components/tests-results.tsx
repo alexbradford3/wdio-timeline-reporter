@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import Error from './error';
 import AdditionalContext from './additional-context';

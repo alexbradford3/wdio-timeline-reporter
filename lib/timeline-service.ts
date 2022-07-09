@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   existsSync,
   mkdirSync,
@@ -37,7 +38,7 @@ export class TimelineService {
 
   setReporterOptions(config: WdioConfiguration) {
     const timelineFilter = config.reporters.filter(
-      item => Array.isArray(item) && item[0] === 'timeline'
+      item => Array.isArray(item) && typeof item[0] !== 'string'
     );
     if (timelineFilter.length === 0) {
       throw new Error(
@@ -87,7 +88,7 @@ export class TimelineService {
 
       // close watcher in onComplete
       this.watcher = watch(this.resolvedOutputDir, (eventType, filename) => {
-        if (filename.includes('timeline-reporter')) {
+        if (filename.includes('TimelineReporter-reporter')) {
           appendFileSync(this.changeLogFile, `${filename}\n`);
         }
       });

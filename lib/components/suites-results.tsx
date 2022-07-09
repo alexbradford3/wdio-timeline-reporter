@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import TestsResults from './tests-results';
 import { makeId, LinkableHeaderH4 } from './linkable-header';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import WDIOReporter from '@wdio/reporter';
 import { MapHooks } from './mapHooks';
 import { MapTests } from './mapTests';
